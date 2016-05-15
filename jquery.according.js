@@ -1,28 +1,30 @@
 ;(function(){
 $.fn.extend({
-"accordion":function(opt){
-
-var pa=$(this);
-var DEFAULT={"start":0};
-var option=$.extend({},DEFAULT,opt);
-function init(){
-	pa.children("div").hide();
-	pa.children("div").eq(option.start).show();
-	
-}
-init();
-
-pa.children(":header").each(function(){
-$(this).click(function(){
-var num=pa.children(":header").index($(this));
-
-pa.children("div:visible").slideUp();
-pa.children("div").eq(num).slideDown();
-					   
-					   })//ed									 
-	})//each ed
-	
+	"according":function(opt){
+		var DEFAULT={"start":0}
+		var option=$.extend({},DEFAULT,opt);
+		this.each(function(){
+		var obj=$(this);
+		init();
+		function init(){
+			obj.children(".content").hide();
+			obj.children(".content").eq(option.start).show();
+			obj.children(":header").eq(option.start).addClass("active");
+		}
+		obj.children(":header").each(function(){
+			$(this).bind("click",showAcc);
+		})//each  header
+		function showAcc(){
+			var ind=obj.children(":header").index($(this));
+			if($(this).hasClass("active")){return};
+			obj.children(":header.active").removeClass("active");
+			obj.children(".content:visible").slideUp();
+			obj.children(".content").eq(ind).slideDown();
+			obj.children(":header").eq(ind).addClass("active");
+		}
+		})//循环传过来的参数
 	}
-			})//extend ed		   
-			   
+	
+})//extend
+	
 })(jQuery)
