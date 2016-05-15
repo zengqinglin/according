@@ -3,17 +3,17 @@
 ##案例
 案例地址: http://zengqinglin.github.io/according/index.html
 ##用法
-###step1
+#####step1
 引用jquey
 ```
   <script src="js/jquery-1.9.1.min.js"></script>
 ```
-###step2
+#####step2
 引用js
 ```
   <script src="js/jquery.according.js"></script>
 ```
-###step3
+#####step3
   html结构
 ```
  <div class="acc" id="acc">
@@ -25,7 +25,7 @@
 			<div class="content">wo 是内容3</div>
 	</div>
 ```
-###step4
+#####step4
 启动according
 ```
   $("#acc").according({"start":0});
